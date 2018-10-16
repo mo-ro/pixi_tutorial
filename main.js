@@ -48,6 +48,19 @@ loader
 
 function setup() {
   let egg = new Sprite(resources["egg.png"].texture);
+
+  // egg.x = 96;
+  // egg.y = 96;
+  egg.position.set(100, 100);
+  // egg.width = 80;
+  // egg.height = 120;
+  egg.scale.set(0.5, 0.5);
+  // egg.pivot.set(32, 32);
+  // egg.anchor.x = 0.5;
+  // egg.anchor.y = 0.5;
+  egg.anchor.set(0.5, 0.5);
+  egg.rotation = 0.5;
+
   app.stage.addChild(egg);
 }
 
