@@ -10,6 +10,7 @@ gulp.task('css',function(){
                 this.emit('end');
             }
         }))
+        .pipe(gulp.dest('css/dist'))
         .pipe(reload())
 });
 gulp.task('js',function(){
@@ -20,6 +21,7 @@ gulp.task('js',function(){
                 this.emit('end');
             }
         }))
+        .pipe(gulp.dest('js/dist'))
         .pipe(reload())
 });
 gulp.task('html',function(){
