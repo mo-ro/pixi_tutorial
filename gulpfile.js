@@ -35,7 +35,7 @@ gulp.task('html',function(){
 });
 gulp.task('default',function(){
     browserSync.init({
-        server: "./"
+        server: "./create"
     });
     gulp.watch('./**/*.js',['js']);
     gulp.watch('./**/*.css',['css']);
