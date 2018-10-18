@@ -73,29 +73,99 @@ function init() {
   //   }
   // }
 
-  var container = new createjs.Container();
-  stage.addChild(container);
+  // var container = new createjs.Container();
+  // stage.addChild(container);
 
-  var circleRed = new createjs.Shape();
-  circleRed.graphics.beginFill("DarkRed").drawCircle(40, 40, 40);
+  // var circleRed = new createjs.Shape();
+  // circleRed.graphics.beginFill("DarkRed").drawCircle(40, 40, 40);
 
-  var circleGreen = new createjs.Shape();
-  circleGreen.graphics.beginFill("green").drawCircle(120, 40, 40);
+  // var circleGreen = new createjs.Shape();
+  // circleGreen.graphics.beginFill("green").drawCircle(120, 40, 40);
 
-  container.addChild(circleRed);
-  container.addChild(circleGreen);
+  // container.addChild(circleRed);
+  // container.addChild(circleGreen);
 
-  circleRed.addEventListener('click', handleRedClick);
-  circleGreen.addEventListener('click', handleGreenClick);
+  // circleRed.addEventListener('click', handleRedClick);
+  // circleGreen.addEventListener('click', handleGreenClick);
 
-  function handleRedClick(e) {
-    container.removeChild(circleRed);
-    console.log(56789)
+  // function handleRedClick(e) {
+  //   container.removeChild(circleRed);
+  //   console.log(56789)
+  // }
+
+  // function handleGreenClick(e) {
+  //   container.removeChild(circleGreen);
+  // }
+
+  // createjs.Ticker.addEventListener('tick', stage);
+
+
+
+  // var shape = new createjs.Shape();
+
+  // shape.graphics.beginFill("DarkRed");
+  // shape.graphics.drawCircle(0, 0, 40);
+  // stage.addChild(shape);
+
+  // createjs.Ticker.timingMode = createjs.Ticker.RAF;
+
+  // createjs.Ticker.addEventListener('tick', handleTick);
+
+  // function handleTick(e) {
+
+  //   var mx = stage.mouseX;
+  //   var my = stage.mouseY;
+
+  //   shape.x = mx;
+  //   shape.y = my;
+
+  //   stage.update();
+  // }
+  // var circle = new createjs.Shape();
+  // circle.graphics.beginFill("DarkRed").drawCircle(100, 100, 80);
+  // stage.addChild(circle);
+
+  // var rect = new createjs.Shape();
+  // rect.graphics.beginFill("blue").drawRect(200, 20, 160, 160);
+  // stage.addChild(rect);
+
+  // circle.addEventListener('click', handleCircleClick);
+  // rect.addEventListener('click', handleRectClick);
+
+  // function handleCircleClick(e) {
+  //   console.log('circle');
+  // }
+
+  // function handleRectClick(e) {
+  //   console.log('rect');
+  // }
+
+  // createjs.Ticker.addEventListener('tick', stage);
+
+  // stage.enableMouseOver();
+
+  var dragPointX = 0;
+  var dragPointY = 0;
+  
+  var circle = new createjs.Shape();
+
+  circle.graphics.beginFill("#999").drawCircle(100, 100, 100);
+  stage.addChild(circle);
+
+  circle.addEventListener('mousedown', handleDown);
+  circle.addEventListener('pressmove', handleMove);
+
+  function handleDown(e) {
+    dragPointX = stage.mouseX - circle.x;
+    dragPointY = stage.mouseY - circle.y;
   }
 
-  function handleGreenClick(e) {
-    container.removeChild(circleGreen);
+  function handleMove(e) {
+    circle.x = stage.mouseX - dragPointX;
+    circle.y = stage.mouseY - dragPointY;
   }
 
   createjs.Ticker.addEventListener('tick', stage);
+
+
 }
