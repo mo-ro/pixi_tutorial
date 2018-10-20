@@ -12,10 +12,6 @@ function init() {
 
   createjs.Ticker.addEventListener('tick', stage);
 
-  if(createjs.Touch.isSupported() == true){
-    createjs.Touch.enable(stage)
-  }
-
 
   function handleDown() {
     emitParticles();
